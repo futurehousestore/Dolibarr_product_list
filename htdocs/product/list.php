@@ -832,10 +832,17 @@ if ($resql)
 		print '<tr class="oddeven">';
 
 		// Ref
-		if (! empty($arrayfields['p.ref']['checked']))
+if (! empty($arrayfields['p.ref']['checked']))
 		{
 			print '<td class="tdoverflowmax200">';
 			print $product_static->getNomUrl(1);
+			
+                        $tmpphoto = $product_static->show_photos('product', $conf->product->multidir_output[$product_static->entity], 1, 1, 0, 0, 0, 80);
+                         if ($product_static->nbphoto > 0) { 
+				print '<br>'.$tmpphoto;
+                          }
+
+			print "</td>\n";
 			print "</td>\n";
 			if (! $i) $totalarray['nbfield']++;
 		}
